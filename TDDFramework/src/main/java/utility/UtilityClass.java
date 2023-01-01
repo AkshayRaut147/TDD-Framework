@@ -196,6 +196,6 @@ public class UtilityClass extends TestBase {
 	public static void dropdownHandler(WebElement element,String OptionValue)
 	{
 		Select s = new Select(element);
-		s.selectByValue(OptionValue);
+		s.selectByVisibleText(OptionValue);
 	}
 }
