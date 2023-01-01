@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -34,11 +35,10 @@ public class TestBase {
 		logger.info("Class Execution Ended");
 	}
 	
+	@Parameters("browser")
 	@BeforeMethod
-	public void setup()
-	{
-		String br = "Chrome";
-		
+	public void setup(String br)
+	{		
 		if(br.equalsIgnoreCase("Chrome"))
 		{
 			WebDriverManager.chromedriver().setup();
@@ -59,7 +59,7 @@ public class TestBase {
 			System.out.println("Please provide correct browser");
 		}
 		
-		driver.get("https://demoblaze.com/index.html");
+		driver.get("url of website");
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

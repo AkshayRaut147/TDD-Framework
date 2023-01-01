@@ -45,7 +45,7 @@ public class UtilityClass extends TestBase {
 	{
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File src = ts.getScreenshotAs(OutputType.FILE);
-		File des = new File(ScreenshotName+count);
+		File des = new File("../TDDFramework/Screenshots/"+ScreenshotName+count+".png");
 		try 
 		{
 			FileHandler.copy(src, des);
